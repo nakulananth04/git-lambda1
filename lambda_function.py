@@ -27,8 +27,8 @@ def lambda_handler(event, context):
     )
     bucket='targetbucketdemo02exi';
     df = initial_df[(initial_df.type == "Movie")];
-    df1 = df.loc[:, ~df.columns.isin(['date_added', 'description', 'duration'])];
+    df = df.loc[:, ~df.columns.isin(['date_added', 'description', 'duration'])];
     csv_buffer = StringIO()
-    df1.to_csv(csv_buffer,index=False);
+    df.to_csv(csv_buffer,index=False);
     s3_resource.Object(bucket, s3_file_key).put(Body=csv_buffer.getvalue())
 
