@@ -25,7 +25,7 @@ def lambda_handler(event, context):
         aws_access_key_id=aws_access_key_id,
         aws_secret_access_key=aws_secret_access_key
     )
-    bucket='targetbucketdemo02exi';
+    bucket='targetbucketdemo02';
     df = initial_df[(initial_df.type == "Movie")];
     df1 = df.loc[:, ~df.columns.isin(['date_added', 'description', 'duration'])];
     csv_buffer = StringIO()
